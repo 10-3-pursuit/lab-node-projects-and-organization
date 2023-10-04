@@ -91,4 +91,9 @@ function sortWords (wordsArr) {
 function wordsWithQ (wordsArr) {
    return wordsArr.filter(words => words.includes('q'));
 };
-console.log(wordsWithQ(importedData));
+//console.log(wordsWithQ(importedData));
+function findWordsWithLetter (wordsArr, letter) {
+    let caseInsensitiveLetter = letter.toLowerCase();
+    return wordsArr.filter(words => words.includes(caseInsensitiveLetter));
+ };
+// console.log (findWordsWithLetter(importedData, "L")); // should print out words that contain that letter
