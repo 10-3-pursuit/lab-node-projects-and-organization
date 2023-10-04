@@ -1,33 +1,37 @@
 const wordsJSON = require("./words.json")
 // console.log(wordsJSON)
-
+//---------------------------------------------------------
 
 // logs all the words
 function allWords(words){
     console.log(words)
 }
-console.log(allWords(wordsJSON))
+// console.log(allWords(wordsJSON))
+//---------------------------------------------------------
 
 
 // logs the first ten words.
 function firstTenWords(words){
     return words.slice(0, 10)
 }
-console.log(firstTenWords(wordsJSON))
+// console.log(firstTenWords(wordsJSON))
+//---------------------------------------------------------
 
 
 // logs the next 10 words.
 function nextTenWords(words){
     return words.slice(10, 20)
 }
-console.log(nextTenWords(wordsJSON))
+// console.log(nextTenWords(wordsJSON))
+//---------------------------------------------------------
 
 
 // logs from 0 to x words.
 function firstXWords(words, x){
     return words.slice(0, x)
 }
-console.log(firstXWords(wordsJSON, 16))
+// console.log(firstXWords(wordsJSON, 16))
+//---------------------------------------------------------
 
 
 // logs from x to y words.
@@ -36,14 +40,16 @@ function subsetOfWords(words, x, y){
     const end = Math.max(x, y)
 return words.slice(start - 1, end)
 }
-console.log(subsetOfWords(wordsJSON, 18, 10))
+// console.log(subsetOfWords(wordsJSON, 18, 10))
+//---------------------------------------------------------
 
 
 // logs all the words, sorted alphabetically.
 function sortWords(words){
     return words.sort((a, b) => a.localeCompare(b))
 }
-console.log(sortWords(wordsJSON))
+// console.log(sortWords(wordsJSON))
+//---------------------------------------------------------
 
 
 // returns all the words that contain the letter q
@@ -55,7 +61,8 @@ function wordsWithQ(words){
         return qWords
     }
 }
-console.log(wordsWithQ(wordsJSON))
+// console.log(wordsWithQ(wordsJSON))
+//---------------------------------------------------------
 
 
 //  takes an argument letter and returns all the words with that matching letter
@@ -68,12 +75,14 @@ function findWordsWithLetter(words, letter){
         return wordsWithLetter
     }
 }
-console.log(findWordsWithLetter(wordsJSON, "z"))
-console.log(findWordsWithLetter(wordsJSON, "M"))
-console.log(findWordsWithLetter(wordsJSON, process.argv[2]))
+// console.log(findWordsWithLetter(wordsJSON, "z"))
+// console.log(findWordsWithLetter(wordsJSON, "M"))
+// console.log(findWordsWithLetter(wordsJSON, process.argv[2]))
+//---------------------------------------------------------
 
 
-// BONUS 
+// BONUS --------------------------------------------------
+
 
 // input up to 5 letters in any order 
 // returns the words that match the criteria (don't worry about solving for duplicate letters).
@@ -92,8 +101,9 @@ function lettersMatch(words, letters){
         return letterMatches
     } 
 }
-console.log(lettersMatch(wordsJSON, process.argv[2]))
+// console.log(lettersMatch(wordsJSON, process.argv[2]))
 // node index.js aeiou
+//---------------------------------------------------------
 
 
 // input a five-character string. 
@@ -105,16 +115,29 @@ function lettersExactMatch(words, string){
         return "Input must be a 5 character string"
     }
     for(let word of words){
-        let isMatch = true
-        let matchedWord = ""
+        // initialize as true for each word
+        let isMatch = true 
         for(let i = 0; i < 5; i++){
-            if(string[i] === "_" || string[i] === "."){
-                
+            if(string[i] !== word[i] && string[i] !== "_" && string[i] !== "."){
+                isMatch = false
+                // no need to check further if a mismatch is found, will move on to next word
+                break;
             }
         }
+        if(isMatch === true){
+            result.push(word)
+        }
+    }
+    if(result.length === 0){
+        return "There are no matches"
+    } else {
+        return result
     }
 }
-// node index.js exactly a_ie_
+console.log(lettersExactMatch(wordsJSON, process.argv[2]))
+// node index.js a_ie_
+// node index.js p.er.
+//---------------------------------------------------------
 
 
 // Update the function lettersMatch to handle duplicate letters
