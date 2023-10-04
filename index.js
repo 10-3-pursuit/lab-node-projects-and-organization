@@ -34,4 +34,19 @@ function firstTenWords (wordsArr) {
     }
     return loggedNext10Words;
 };
-console.log (firstTenWords(importedData));
+//console.log (firstTenWords(importedData));
+
+// x is an integer number bigger than 0
+function firstXWords (wordsArr, x) {
+    let loggedXWords = "";
+    let word = "";
+    if (x > 0) {
+    for (let i=0; i < x; i++) {
+        word = wordsArr[i];
+        loggedXWords += `${word} `;
+        loggedXWords.trim();
+    }
+}
+    return loggedXWords;
+};
+console.log (firstXWords(importedData, 5));
