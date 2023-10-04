@@ -61,16 +61,69 @@ console.log(wordsWithQ(wordsJSON))
 //  takes an argument letter and returns all the words with that matching letter
 function findWordsWithLetter(words, letter){
     letter = letter.toLowerCase()
-    const letterMatches = words.filter((word) => word.includes(letter))
-    if(letterMatches === 0){
+    const wordsWithLetter = words.filter((word) => word.includes(letter))
+    if(wordsWithLetter === 0){
         return `There are no words with the letter ${letter}`
     } else {
-        return letterMatches
+        return wordsWithLetter
     }
 }
 console.log(findWordsWithLetter(wordsJSON, "z"))
 console.log(findWordsWithLetter(wordsJSON, "M"))
+console.log(findWordsWithLetter(wordsJSON, process.argv[2]))
 
 
+// BONUS 
+
+// input up to 5 letters in any order 
+// returns the words that match the criteria (don't worry about solving for duplicate letters).
+function lettersMatch(words, letters){
+    letters = letters.toLowerCase()
+    if(letters.length > 5){
+        return "This search can only take up to 5 letters"
+    } else if(!letters){
+        return "Please enter up to 5 letters"
+    }
+    const letterMatches = words.filter((word) => word.includes(letters))
+    
+    if(letterMatches.length === 0){
+        return "There are no matches"
+    } else {
+        return letterMatches
+    } 
+}
+console.log(lettersMatch(wordsJSON, process.argv[2]))
+// node index.js aeiou
+
+
+// input a five-character string. 
+// put letters with the exact placement in their place
+// put a placeholder like . or _ for unknown letters
+function lettersExactMatch(words, string){
+    const result = []
+    if(string.length !== 5){
+        return "Input must be a 5 character string"
+    }
+    for(let word of words){
+        let isMatch = true
+        let matchedWord = ""
+        for(let i = 0; i < 5; i++){
+            if(string[i] === "_" || string[i] === "."){
+                
+            }
+        }
+    }
+}
+// node index.js exactly a_ie_
+
+
+// Update the function lettersMatch to handle duplicate letters
+
+
+// Create a new function that can handle both inputs
+// One input for matched letters in the wrong position
+// The second input for matched letters in the correct position
+
+// node index.js al__a o
 
 
