@@ -1,33 +1,34 @@
 const wordsJSON = require("./words.json")
 
-const allWords = words => words
-
-// console.log(allWords(wordsJSON))
+const wordLogger = (words, start = 0, end = words.length) => words.slice(start, end).forEach(word => console.log(word))
 
 
-const firstTenWords = words => {
-    const firstTenWordsArr = []
-    for(word of words) {
-        if(words.indexOf(word) < 10) {
-            firstTenWordsArr.push(word)
-        }
-    }
-    return firstTenWordsArr
-}
+const allWords = words => wordLogger(words)
 
-console.log(firstTenWords(wordsJSON))
+// allWords(wordsJSON)
 
 
-const nextTenWords = (words, index) => {
-    const nextTenWordsArr = []
-    for(word of words) {
-        if(words.indexOf(word) >= index && words.indexOf(word) < index + 10) {
-            if(nextTenWordsArr.length < 10) {
-                nextTenWordsArr.push(word)
-            }
-        }
-    }
-    return nextTenWordsArr
-}
 
-console.log(nextTenWords(wordsJSON, process.argv[2]))
+const firstTenWords = words => wordLogger(words, 0, 10)
+
+// firstTenWords(wordsJSON)
+
+
+const nextTenWords = words => wordLogger(words, 10, 20)
+
+// nextTenWords(wordsJSON)
+
+
+const firstXWords = (words, x) => wordLogger(words, 0, x)
+
+// firstXWords(wordsJSON, process.argv[2])
+
+
+const subsetOfWords = (words, start, end) => wordLogger(words, start, end)
+
+// subsetOfWords(wordsJSON, process.argv[2], process.argv[3])
+
+
+const sortWords = words => wordLogger(words.sort())
+
+// sortWords(wordsJSON)
