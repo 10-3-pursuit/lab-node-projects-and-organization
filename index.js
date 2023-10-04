@@ -93,7 +93,28 @@ function wordsWithQ (wordsArr) {
 };
 //console.log(wordsWithQ(importedData));
 function findWordsWithLetter (wordsArr, letter) {
-    let caseInsensitiveLetter = letter.toLowerCase();
-    return wordsArr.filter(words => words.includes(caseInsensitiveLetter));
+    if (typeof letter === 'string' && letter.length === 1) {
+        let caseInsensitiveLetter = letter.toLowerCase();
+        for (let words of wordsArr) {
+            if (!words.toLowerCase().includes(caseInsensitiveLetter))
+            return wordsArr.join(" ").trim();
+        };
+        let wordsWithLetterArr = wordsArr.filter(words => words.toLowerCase().includes(caseInsensitiveLetter))
+        return wordsWithLetterArr.join(" ").trim();
+    }
  };
-// console.log (findWordsWithLetter(importedData, "L")); // should print out words that contain that letter
+// ---- Test data: ----
+const testData =["women",
+"nikau",
+"swack",
+"feens",
+"fyles",
+"poled",
+"clags",
+"starn",
+"bindi",
+"woops"
+];
+console.log (findWordsWithLetter(testData, "X")); // returns all words since x isn't included in any of them
+//console.log (findWordsWithLetter(testData, "L")); // returns only words with letter L
+//console.log (findWordsWithLetter(importedData, "L")); // should print out words that contain that letter
