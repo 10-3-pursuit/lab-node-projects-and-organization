@@ -27,7 +27,7 @@ function firstTenWords (wordsArr) {
 function firstTenWords (wordsArr) {
     let loggedNext10Words = "";
     let word = "";
-    for (let i=9; i < 20; i++) {
+    for (let i=10; i < 20; i++) {
         word = wordsArr[i];
         loggedNext10Words += `${word} `;
         loggedNext10Words.trim();
