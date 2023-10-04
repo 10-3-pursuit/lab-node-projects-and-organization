@@ -134,13 +134,61 @@ function lettersExactMatch(words, string){
         return result
     }
 }
-console.log(lettersExactMatch(wordsJSON, process.argv[2]))
+// console.log(lettersExactMatch(wordsJSON, process.argv[2]))
 // node index.js a_ie_
 // node index.js p.er.
+// node index.js zxcvb
 //---------------------------------------------------------
 
 
 // Update the function lettersMatch to handle duplicate letters
+function lettersMatch2(words, letters){
+
+    const lettersArr = letters.toLowerCase().split('')
+    
+    if(lettersArr.length > 5 || lettersArr.length === 0){
+        return "Please enter up to 5 letters"
+    }
+    // count how many occurences of each letter in letters
+    const letterCount = lettersArr.reduce((count, current) => {
+        if(count[current]){
+            count[current] += 1
+        } else {
+            count[current] = 1
+        }
+        return count
+    }, {})
+    console.log(letterCount)
+
+    let isMatch;
+    const result = []
+    for(let word of words){
+        // initialize as true for each word
+        let isMatch = true
+        for(let letter of lettersArr){
+            if(word.includes(letter) && letterCount[letter] > 0){
+                // if found, decrease the count for this letter
+                letterCount[letter] -= 1
+            } else {
+                // letter not found or not found enough times
+                isMatch = false
+                // no need to look any further at the word if letter doesn't match
+                break;
+            }
+        }
+        if(isMatch === true){
+            result.push(word)
+        }
+    }
+    
+    if(result.length === 0){
+        return "There are no matches"
+    } else {
+        return result
+    } 
+}
+console.log(lettersMatch2(wordsJSON, process.argv[2]))
+//---------------------------------------------------------
 
 
 // Create a new function that can handle both inputs
