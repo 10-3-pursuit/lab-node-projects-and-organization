@@ -74,7 +74,7 @@ node index.js p
 
 - Write a function `lettersMatch` that lets you input up to 5 letters in any order and returns the words that match the criteria (don't worry about solving for duplicate letters).
   - `node index.js aeiou`
-- Write a function `letttersExactMatch` that lets you input a five-character string. Put letters with the exact placement in their place, and put a placeholder like `.` or `_` for unknown letters.
+- Write a function `lettersExactMatch` that lets you input a five-character string. Put letters with the exact placement in their place, and put a placeholder like `.` or `_` for unknown letters.
 - `node index.js exactly a_ie_`
 - Update the function `lettersMatch` to handle duplicate letters
 - Create a new function that can handle both inputs
