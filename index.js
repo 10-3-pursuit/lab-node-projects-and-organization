@@ -2,6 +2,8 @@ const importedData = require ("./words.json");
 
 //console.log(importedData);
 
+//Check if all edge cases are accounted for
+
 function allWords(wordsArr) {
     let loggedWords = "";
     for (let word of wordsArr) {
@@ -87,11 +89,14 @@ function sortWords (wordsArr) {
 // fx wordsWithQ Returns list of words that contain letter q
 // finds a word with matching letter q
 // finds a word with more than 1 matching letter q
-// finds a word with no matching letters? probably to return an error 
+// finds a word with no matching letters? probably to return an error
+// not complete because needs edge case for error return 
 function wordsWithQ (wordsArr) {
    return wordsArr.filter(words => words.includes('q'));
 };
 //console.log(wordsWithQ(importedData));
+
+// I think complete? it has the edge case for error return
 function findWordsWithLetter (wordsArr, letter) {
     if (typeof letter === 'string' && letter.length === 1) {
         let caseInsensitiveLetter = letter.toLowerCase();
