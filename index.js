@@ -72,7 +72,6 @@ function lettersMatch(words,letters){
 // console.log(lettersMatch(wordList,process.argv[2]))
 
 function lettersExactMatch(words,letters){
-    letters = [...letters]
     return words.filter(word => {
         let exactMatch = true
         for(let i = 0; i < word.length; i++){
@@ -93,4 +92,4 @@ function MatchChecker(words,exactLetters,letters){
     return lettersMatch(exactMatch,letters)
 }
 
-// console.log(MatchChecker(wordList, process.argv[2],process.argv[3]))
+console.log(MatchChecker(wordList, process.argv[2],process.argv[3]))
