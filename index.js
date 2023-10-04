@@ -81,3 +81,14 @@ function sortWords (wordsArr) {
     return sortedWords;
 };
 //console.log (sortWords(importedData));
+
+// (>^_^)> ---- Wordle Solver Functions: ---- <(^_^<)
+
+// fx wordsWithQ Returns list of words that contain letter q
+// finds a word with matching letter q
+// finds a word with more than 1 matching letter q
+// finds a word with no matching letters? probably to return an error 
+function wordsWithQ (wordsArr) {
+   return wordsArr.filter(words => words.includes('q'));
+};
+console.log(wordsWithQ(importedData));
