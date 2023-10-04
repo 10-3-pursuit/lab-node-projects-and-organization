@@ -50,6 +50,7 @@ function firstXWords (wordsArr, x) {
     return loggedXWords;
 };
 //console.log (firstXWords(importedData, 5));
+
 //x is start (not inclusive)
 //y is end (inclusive)
 function subsetOfWords (wordsArr, x, y) {
@@ -69,3 +70,13 @@ function subsetOfWords (wordsArr, x, y) {
 //console.log (subsetOfWords(importedData,7,6)); // output is error message
 //console.log (subsetOfWords(importedData,6,6)); // output is error message
 //console.log (subsetOfWords(importedData,4,6)); // output will not include word 4. Output will be words 5 and 6
+function sortWords (wordsArr) {
+    wordsArr.sort();
+    let sortedWords = "";
+    for (let word of wordsArr) {
+        sortedWords += `${word} \n`;
+        sortedWords.trim();
+    }
+    return sortedWords;
+};
+console.log (sortWords(importedData));
