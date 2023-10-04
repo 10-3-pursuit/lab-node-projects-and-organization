@@ -49,4 +49,23 @@ function firstXWords (wordsArr, x) {
 }
     return loggedXWords;
 };
-console.log (firstXWords(importedData, 5));
+//console.log (firstXWords(importedData, 5));
+//x is start (not inclusive)
+//y is end (inclusive)
+function subsetOfWords (wordsArr, x, y) {
+    let loggedsubsetOfWords = "";
+    let word = "";
+    if (x > 0 && y > 0 && x < y) {
+    for (let i=x; i < y; i++) {
+        word = wordsArr[i];
+        loggedsubsetOfWords += `${word} `;
+        loggedsubsetOfWords.trim();
+    }
+} else {
+    return `Error, must have correct inputs; x can not be greater than or equal to y.`
+}
+    return loggedsubsetOfWords;
+};
+//console.log (subsetOfWords(importedData,7,6)); // output is error message
+//console.log (subsetOfWords(importedData,6,6)); // output is error message
+//console.log (subsetOfWords(importedData,4,6)); // output will not include word 4. Output will be words 5 and 6
