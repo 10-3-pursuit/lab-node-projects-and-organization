@@ -54,11 +54,6 @@ function findWordsWithLetter(words,letter){
 
 // console.log(findWordsWithLetter(wordList,process.argv[2]))
 
-function findWordsWithMoreThanOneLetter(words,letter){
-    return words.filter(word => word.toUpperCase().includes(letter.toUpperCase() && word.toUpperCase().indexOf(letter.toUpperCase() === word.toUpperCase())))
-}
-console.log(findWordsWithMoreThanOneLetter(wordList,'p'))
-
 function lettersMatch(words,letters){
     letters = [...letters]
     letters = letters.filter(letter => letter !== '_' && letter !== '.')
@@ -85,7 +80,7 @@ function lettersExactMatch(words,letters){
         return exactMatch
     })
 }
-// console.log(lettersExactMatch(wordList,process.argv[2]))
+console.log(lettersExactMatch(wordList,process.argv[2]))
 
 function MatchChecker(words,exactLetters,letters){
     const exactMatch = lettersExactMatch(words,exactLetters)
