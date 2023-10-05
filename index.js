@@ -4,120 +4,136 @@ const importedData = require ("./words.json");
 /**
  * Returns and logs to the console a string of all of the words in array input.
  * @param {String[]} wordsArr - An array of strings.
- * @returns {String | Undefined} - A string of words or undefined if argument is not an array.
+ * @returns {String | Undefined} - A string of words or undefined if argument is not an array of strings.
  */
 function allWords(wordsArr) {
     if (!Array.isArray(wordsArr)) return console.log(undefined);
     let loggedWords = "";
     for (let word of wordsArr) {
-        loggedWords += `${word}\n`; // the new line character inserts line break after each word
+        if (typeof word !== 'string') return console.log(undefined);
+        else loggedWords += `${word}\n`; // the new line character inserts line break after each word
     }
     return console.log(loggedWords.trim()); // logs all the words and trims trailing spaces when allWords is invoked
 };
 //allWords(importedData); // there is no test file so invoking fx won't break anything ;-)
 //allWords("Words"); // returns undefined because argument must be array
+//allWords([0,1,2,3,4,5,6,7,8,9]); // returns undefined
 
 /**
  * Returns and logs to the console a string of first 10 words in array input.
  * @param {String[]} wordsArr - An array of strings where each element is a word.
- * @returns {String | Undefined} - A string of words first 10 words in array input or undefined if input is not an array or is an array but has less than 10 string elements.
+ * @returns {String | Undefined} - A string of words first 10 words in array of strings input or undefined when input is not an array of strings, and/or when input is an array of strings but has less than 10 string elements.
  */
 function firstTenWords (wordsArr) {
     if (!Array.isArray(wordsArr)) return console.log(undefined);
-    if (wordsArr.length < 10) return undefined;
+    if (wordsArr.length < 10) return console.log(undefined);
     let loggedFirst10Words = "";
     for (let i=0; i < 10; i++) {
-        loggedFirst10Words += `${wordsArr[i]}\n`;
+        if (typeof wordsArr[i] !== 'string') return console.log(undefined);
+        else loggedFirst10Words += `${wordsArr[i]}\n`;
     }
     return console.log(loggedFirst10Words.trim()); // logs first ten words and trims trailing spaces to make string look neat when firstTenWords is invoked
 };
 //firstTenWords(importedData); // logs first 10 words (string)
 //firstTenWords ("words"); // returns undefined
+//firstTenWords (["word1", "word2", "word3", "word4"]); // returns undefined
+//firstTenWords ([0,1,2,3,4,5,6,7,8,9]); // returns undefined
 
 /**
  * Returns and logs to the console a string of the next 10 words in array input starting at the 10th word, but not including it.
  * @param {String[]} wordsArr - An array of strings.
- * @returns {String | Undefined} - A string of words or undefined when array input doesn't contain at least 20 elements or argument isn't an array.
+ * @returns {String | Undefined} - A string of words or undefined when array is not an array of strings, when array doesn't contain at least 20 elements, and/or when argument isn't an array.
  */
 function nextTenWords (wordsArr) {
     //array must contain at least 20 strings so it can return and log next 10 words
     if (!Array.isArray(wordsArr)) return console.log(undefined);
-    if (wordsArr.length < 20) return undefined;
+    if (wordsArr.length < 20) return console.log(undefined);
     let loggedNext10Words = "";
     for (let i=10; i < 20; i++) { // 10th word is "woops" so next word is "fanos"
-        loggedNext10Words += `${wordsArr[i]}\n`;
+        if (typeof wordsArr[i] !== 'string') return console.log(undefined);
+        else loggedNext10Words += `${wordsArr[i]}\n`;
     }
     return console.log(loggedNext10Words.trim()); // logs next ten words and trims trailing spaces when nextTenWords is invoked
 };
 //nextTenWords(importedData); // returns and logs next ten words
 //nextTenWords("words"); // returns and logs undefined
+//nextTenWords ([0,1,2,3,4,5,6,7,8,9]); // returns undefined
+//nextTenWords ([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]); // returns undefined
 
 /**
  * Returns and logs to the console a string of first x words in an array of strings where x is an integer number greater than 0.
  * @param {String[]} wordsArr - An array of strings.
  * @param {Number} x - ending index (inclusive).
- * @returns {String | Undefined} - A string of words between indices 0 and x of array argument or returns undefined when argument for wordsArr parameter is not an array, when array argument is empty when x is greater than 0 (bc that makes no sense), when x is less than 0, and/or when x is not an integer.
+ * @returns {String | Undefined} - A string of words between indices 0 and x of array of strings argument or returns undefined when argument for wordsArr parameter is not an array of strings, when array argument is empty when x is greater than 0 (bc that makes no sense), when x is less than 0, and/or when x is not an integer.
  */
 function firstXWords (wordsArr, x) {
     if (!Array.isArray(wordsArr)) return console.log(undefined);
-    if (x < 0 || Number.isInteger(x) === false) return undefined;
-    if (wordsArr.length === 0 && x > 0) return undefined;
+    if (x < 0 || Number.isInteger(x) === false) return console.log(undefined);
+    if (wordsArr.length === 0 && x > 0) return console.log(undefined);
     let loggedXWords = "";
     for (let i=0; i < x; i++) {
-        loggedXWords += `${wordsArr[i]}\n`;
+        if (typeof wordsArr[i] !== 'string') return console.log(undefined);
+        else loggedXWords += `${wordsArr[i]}\n`;
     }
     return console.log(loggedXWords.trim());
 };
 //firstXWords(importedData, 5); // prints first 5 words (string type)
 //firstXWords(importedData, 1); // prints first word (string type)
-//firstXWords (importedData, 0); // returns empty string as expected
-//firstXWords (["word1"], 1); // prints only word
-//firstXWords ([],1); // returns undefined
-//firstXWords ("words",1); // returns undefined
-//firstXWords ([],0); // returns empty string
+//firstXWords (importedData, 0); // prints empty string as expected
+//firstXWords (["word1"], 1); // prints only element in array
+//firstXWords (["word1"], 0); //  prints empty string
+//firstXWords ([],1); // returns and prints undefined
+//firstXWords ([],0); // returns and prints empty string
+//firstXWords ("words",1); // returns and prints undefined
+//firstXWords ([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]); // returns undefined
 
 /**
  * Returns and logs to the console a string of words between x and y in an array of strings where x and y are integer numbers greater than 0.
  * @param {String[]} wordsArr - An array of strings.
  * @param {Number} x - starting index (not inclusive).
  * @param {Number} y - ending index (inclusive).
- * @returns {String | Undefined} - A string of words between indices x and y or returns undefined when argument for wordsArr parameter is not an array, when x is greater than y, when array argument is empty when x is greater than 0 and/or when y is greater than 0, when either x is less than 0 and/or y is less than 0, and/or when either x and/or y are not integers.
+ * @returns {String | Undefined} - A string of words between indices x and y or returns undefined when argument for wordsArr parameter is not an array of strings, when x is greater than y, when array argument is empty when x is greater than 0 and/or when y is greater than 0, when either x is less than 0 and/or y is less than 0, and/or when either x and/or y are not integers.
  */
 function subsetOfWords (wordsArr, x, y) {
     if (!Array.isArray(wordsArr)) return console.log(undefined);
-    if (x < 0 || y < 0 || x > y || Number.isInteger(x) === false || Number.isInteger(y) === false) return undefined;
-    if (wordsArr.length === 0 && x > 0 || wordsArr.length === 0 && y > 0) return undefined;
+    if (x < 0 || y < 0 || x > y || Number.isInteger(x) === false || Number.isInteger(y) === false) return console.log(undefined);
+    if (wordsArr.length === 0 && x > 0 || wordsArr.length === 0 && y > 0) return console.log(undefined);
     let loggedsubsetOfWords = "";
     for (let i=x; i < y; i++) {
-        loggedsubsetOfWords += `${wordsArr[i]}\n`;
+        if (typeof wordsArr[i] !== 'string') return console.log(undefined);
+        else loggedsubsetOfWords += `${wordsArr[i]}\n`;
     }
     return console.log(loggedsubsetOfWords.trim());
 };
 //subsetOfWords(importedData,0,6); // output includes words 1 - 6 (string)
-//subsetOfWords(importedData,7,6); // output is undefined
+//subsetOfWords(importedData,7,6); // output is undefined x can not be greater than y
 //subsetOfWords(importedData,6,6); // output is empty string
-//subsetOfWords(importedData,5,6); // output will not include word 5 but will include 6 (string)
-//subsetOfWords(["word1"],1,2); // output is undefined because only index that exists is 0
-//subsetOfWords(["word1"],0,1); // output is word 1 (a string at index 0)
+//subsetOfWords(importedData,5,6); // output will not include word 5 but will include word 6 (string)
+//subsetOfWords(importedData,30,50); // output will not include word 30 but will include words 31 - 50 including word 50 (string)
+//subsetOfWords(["word1"],1,2); // output is undefined because only index that exists in this case is 0
+//subsetOfWords(["word1"],0,1); // output is word 1
 //subsetOfWords(["word1"],0,0); // output is empty string
 //subsetOfWords("words",0,1); // output is undefined
+//subsetOfWords([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]); // returns undefined
 
 /**
  * Returns and logs a sorted string of words in alphabetical order.
  * @param {String[]} wordsArr - An array of strings.
- * @returns {String | Undefined} - A string of words in alphabetical order; undefined if argument is not an array.
+ * @returns {String | Undefined} - A string of words in alphabetical order; undefined if argument is not an array of strings.
  */
 function sortWords (wordsArr) {
     if (!Array.isArray(wordsArr)) return console.log(undefined);
     wordsArr.sort();
     let sortedWords = "";
     for (let word of wordsArr) {
-        sortedWords += `${word}\n`; // this makes it look like a column for readability
+        if (typeof word !== 'string') return console.log(undefined);
+        else sortedWords += `${word}\n`; // this makes it look like a column for readability
     }
     return console.log(sortedWords.trim());
 };
 //sortWords(importedData); //prints sorted words (string)
-//sortWords("words"); //prints sorted words (string)
+//sortWords("words"); // returns and prints undefined (string)
+//sortWords([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]); // return and prints undefined
 
 // (>^_^)> ---- Wordle Solver Functions: ---- <(^_^<)
 
