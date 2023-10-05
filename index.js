@@ -78,6 +78,7 @@ function findWordsWithLetter(words, letter){
 // console.log(findWordsWithLetter(wordsJSON, "z"))
 // console.log(findWordsWithLetter(wordsJSON, "M"))
 // console.log(findWordsWithLetter(wordsJSON, process.argv[2]))
+// node index.js p
 //---------------------------------------------------------
 
 
@@ -143,44 +144,23 @@ function lettersExactMatch(words, string){
 
 // Update the function lettersMatch to handle duplicate letters
 function lettersMatch2(words, letters){
-
     const lettersArr = letters.toLowerCase().split('')
-    
     if(lettersArr.length > 5 || lettersArr.length === 0){
-        return "Please enter up to 5 letters"
+    return "Please enter up to 5 letters"
     }
-    // count how many occurences of each letter in letters
-    const letterCount = lettersArr.reduce((count, current) => {
-        if(count[current]){
-            count[current] += 1
-        } else {
-            count[current] = 1
-        }
-        return count
-    }, {})
-    console.log(letterCount)
 
-    let isMatch;
-    const result = []
-    for(let word of words){
-        // initialize as true for each word
-        let isMatch = true
+    const result = words.filter((word) => {
         for(let letter of lettersArr){
-            if(word.includes(letter) && letterCount[letter] > 0){
-                // if found, decrease the count for this letter
-                letterCount[letter] -= 1
+            const index = word.indexOf(letter)
+            if(index !== -1){
+                word = word.slice(0, index) + word.slice(index + 1)
             } else {
-                // letter not found or not found enough times
-                isMatch = false
-                // no need to look any further at the word if letter doesn't match
-                break;
+                return false
             }
         }
-        if(isMatch === true){
-            result.push(word)
-        }
-    }
-    
+        return true
+    })
+
     if(result.length === 0){
         return "There are no matches"
     } else {
@@ -188,6 +168,9 @@ function lettersMatch2(words, letters){
     } 
 }
 console.log(lettersMatch2(wordsJSON, process.argv[2]))
+// node index.js iib
+// node index.js aaaae
+// node index.js eEel
 //---------------------------------------------------------
 
 
