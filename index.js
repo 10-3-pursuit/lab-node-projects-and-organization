@@ -47,7 +47,7 @@ function nextTenWords (wordsArr) {
     }
     return console.log(loggedNext10Words.trim()); // logs next ten words when nextTenWords is invoked
 };
-//nextTenWords(importedData)
+//nextTenWords(importedData);
 
 /**
  * Returns and logs to the console a string of first x words in an array of strings where x is an integer number greater than 0.
@@ -64,12 +64,12 @@ function firstXWords (wordsArr, x) {
     }
     return console.log(loggedXWords.trim());
 };
-//firstXWords(importedData, 5) // prints first 5 words (string type)
-//firstXWords(importedData, 1) // prints first word (string type)
-//firstXWords (importedData, 0) // returns empty string as expected
-//firstXWords (["word1"], 1) // prints only word
-//firstXWords ([],1) // returns undefined
-//firstXWords ([],0) // returns empty string
+//firstXWords(importedData, 5); // prints first 5 words (string type)
+//firstXWords(importedData, 1); // prints first word (string type)
+//firstXWords (importedData, 0); // returns empty string as expected
+//firstXWords (["word1"], 1); // prints only word
+//firstXWords ([],1); // returns undefined
+//firstXWords ([],0); // returns empty string
 
 /**
  * Returns and logs to the console a string of words between x and y in an array of strings where x and y are integer numbers greater than 0.
@@ -89,27 +89,27 @@ function subsetOfWords (wordsArr, x, y) {
     }
     return console.log(loggedsubsetOfWords.trim());
 };
-//subsetOfWords(importedData,0,6) // Output includes words 1 - 6 (string)
-//subsetOfWords(importedData,7,6) // output is undefined
-//subsetOfWords(importedData,6,6) // output is word 6 (string)
-//subsetOfWords(importedData,4,6) // output will not include word 4. Output will be words 5 and 6 (string)
-//subsetOfWords(["word1"],1,2) // output is undefined because only index that exists is 0
-//subsetOfWords(["word1"],0,1) // output is word 1 (a string at index 0)
-//subsetOfWords(["word1"],0,0) // output will be empty string
+//subsetOfWords(importedData,0,6); // output includes words 1 - 6 (string)
+//subsetOfWords(importedData,7,6); // output is undefined
+//subsetOfWords(importedData,6,6); // output is empty string
+//subsetOfWords(importedData,5,6); // output will not include word 5 but will include 6 (string)
+//subsetOfWords(["word1"],1,2); // output is undefined because only index that exists is 0
+//subsetOfWords(["word1"],0,1); // output is word 1 (a string at index 0)
+//subsetOfWords(["word1"],0,0); // output is empty string
 /**
- * Returns a string of words between x and y in an array of strings where x and y are integer numbers bigger than 0
+ * Returns and logs a sorted string of words in alphabetical order.
  * @param {String[]} wordsArr - An array of strings.
- * @returns {string|undefined} - A string of words between indices x and y
+ * @returns {String} - A string of words in alphabetical order.
  */
 function sortWords (wordsArr) {
     wordsArr.sort();
     let sortedWords = "";
     for (let word of wordsArr) {
-        sortedWords += `${word} \n`;
+        sortedWords += `${word} \n`; // this makes it look like a column for readability
     }
     return console.log(sortedWords.trim());
 };
-//sortWords(importedData)
+//sortWords(importedData); //prints sorted words (string)
 
 // (>^_^)> ---- Wordle Solver Functions: ---- <(^_^<)
 const testData =["women",
