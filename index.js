@@ -10,9 +10,9 @@ function allWords(wordsArr) {
     if (!Array.isArray(wordsArr)) return console.log(undefined);
     let loggedWords = "";
     for (let word of wordsArr) {
-        loggedWords += `${word} `;
+        loggedWords += `${word}\n`; // the new line character inserts line break after each word
     }
-    return console.log(loggedWords.trim()); // logs all the words when allWords is invoked
+    return console.log(loggedWords.trim()); // logs all the words and trims trailing spaces when allWords is invoked
 };
 //allWords(importedData); // there is no test file so invoking fx won't break anything ;-)
 //allWords("Words"); // returns undefined because argument must be array
@@ -27,7 +27,7 @@ function firstTenWords (wordsArr) {
     if (wordsArr.length < 10) return undefined;
     let loggedFirst10Words = "";
     for (let i=0; i < 10; i++) {
-        loggedFirst10Words += `${wordsArr[i]} \n`;
+        loggedFirst10Words += `${wordsArr[i]}\n`;
     }
     return console.log(loggedFirst10Words.trim()); // logs first ten words and trims trailing spaces to make string look neat when firstTenWords is invoked
 };
@@ -44,10 +44,8 @@ function nextTenWords (wordsArr) {
     if (!Array.isArray(wordsArr)) return console.log(undefined);
     if (wordsArr.length < 20) return undefined;
     let loggedNext10Words = "";
-    let word = "";
     for (let i=10; i < 20; i++) { // 10th word is "woops" so next word is "fanos"
-        word = wordsArr[i];
-        loggedNext10Words += `${word} \n`;
+        loggedNext10Words += `${wordsArr[i]}\n`;
     }
     return console.log(loggedNext10Words.trim()); // logs next ten words and trims trailing spaces when nextTenWords is invoked
 };
@@ -66,7 +64,7 @@ function firstXWords (wordsArr, x) {
     if (wordsArr.length === 0 && x > 0) return undefined;
     let loggedXWords = "";
     for (let i=0; i < x; i++) {
-        loggedXWords += `${wordsArr[i]} \n`;
+        loggedXWords += `${wordsArr[i]}\n`;
     }
     return console.log(loggedXWords.trim());
 };
@@ -90,10 +88,8 @@ function subsetOfWords (wordsArr, x, y) {
     if (x < 0 || y < 0 || x > y || Number.isInteger(x) === false || Number.isInteger(y) === false) return undefined;
     if (wordsArr.length === 0 && x > 0 || wordsArr.length === 0 && y > 0) return undefined;
     let loggedsubsetOfWords = "";
-    let word = "";
     for (let i=x; i < y; i++) {
-        word = wordsArr[i];
-        loggedsubsetOfWords += `${word} \n`;
+        loggedsubsetOfWords += `${wordsArr[i]}\n`;
     }
     return console.log(loggedsubsetOfWords.trim());
 };
@@ -116,7 +112,7 @@ function sortWords (wordsArr) {
     wordsArr.sort();
     let sortedWords = "";
     for (let word of wordsArr) {
-        sortedWords += `${word} \n`; // this makes it look like a column for readability
+        sortedWords += `${word}\n`; // this makes it look like a column for readability
     }
     return console.log(sortedWords.trim());
 };
