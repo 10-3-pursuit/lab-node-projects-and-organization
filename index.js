@@ -103,8 +103,28 @@ const sortWords = () => {
 // 3. Game checks if letter is in word
 //   a. use word.includes()
 
-const guessLetter = (letter) => {
-    console.log(letter);
+
+const getNextTenWords = () => {
+    const out = wordsJSON.slice(countOfWordsLogged, countOfWordsLogged + 10);
+    countOfWordsLogged + 10;
+    return out;
 }
 
+const currentWords = getNextTenWords();
+
+const chooseAWord = () => {
+    // get next ten words
+    if (currentWords.length === 0) {
+        const currentWords = getNextTenWords();
+    }
+    return currentWords.shift();
+}
+
+const guessLetter = (letter) => {
+    console.log(letter);
+    
+}
+
+
 guessLetter(process.argv[2]);
+// console.log(chooseAWord());
