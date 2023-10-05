@@ -3,35 +3,31 @@ const importedData = require ("./words.json");
 //console.log(importedData);
 
 /**
- * Returns a string of all of the words in array input
- * @param {String[]}  - An array of strings.
+ * Returns a string of all of the words in array input.
+ * @param {String[]}  wordsArr - An array of strings.
  * @returns {string} - A string of words.
  */
 function allWords(wordsArr) {
     let loggedWords = "";
     for (let word of wordsArr) {
         loggedWords += `${word} `;
-        loggedWords.trim();
     }
-    return console.log(loggedWords); // logs all the words when allWords is invoked
+    return console.log(loggedWords.trim()); // logs all the words when allWords is invoked
 };
-//allWords(importedData); // there is no test file
+//allWords(importedData); // there is no test file so invoking fx won't break anything ;-)
 
 /**
  * Returns a string of first 10 words in array input
- * @param {String[]}  - An array of strings.
- * @returns {string} - A string of words.
+ * @param {String[]}  wordsArr - An array of strings.
+ * @returns {String | undefined} - A string of words first 10 words in array input or undefined if input has less than 10 words
  */
 function firstTenWords (wordsArr) {
-    if (wordsArr.length >= 10) {
+    if (wordsArr.length < 10) return undefined;
     let loggedFirst10Words = "";
-    let word = "";
     for (let i=0; i < 10; i++) {
-        word = wordsArr[i];
-        loggedFirst10Words += `${word} `;
-        loggedFirst10Words.trim();
-    }}
-    return console.log(loggedFirst10Words); // logs first ten words when firstTenWords is invoked
+        loggedFirst10Words += `${wordsArr[i]} \n`;
+    }
+    return console.log(loggedFirst10Words.trim()); // logs first ten words when firstTenWords is invoked
 };
 //firstTenWords(importedData);
 
@@ -47,16 +43,19 @@ function nextTenWords (wordsArr) {
     let word = "";
     for (let i=10; i < 20; i++) {
         word = wordsArr[i];
-        loggedNext10Words += `${word} `;
-        loggedNext10Words.trim();
+        loggedNext10Words += `${word} \n`;
     }
 }
-    return console.log(loggedNext10Words); // logs next ten words when nextTenWords is invoked
+    return console.log(loggedNext10Words.trim()); // logs next ten words when nextTenWords is invoked
 };
 //nextTenWords(importedData)
 
-// x is an integer number bigger than 0
-
+/**
+ * Returns a string of first x words in an array of strings where x is an integer number bigger than 0
+ * @param {String[]}  - An array of strings.
+ * @param {Number} x - end index (inclusive)
+ * @returns {string} - A string of words between indices 0 and x
+ */
 function firstXWords (wordsArr, x) {
     if (wordsArr.length >= 2) {
     let loggedXWords = "";
@@ -64,16 +63,20 @@ function firstXWords (wordsArr, x) {
     if (x > 0) {
     for (let i=0; i < x; i++) {
         word = wordsArr[i];
-        loggedXWords += `${word} `;
-        loggedXWords.trim();
+        loggedXWords += `${word} \n`;
     }
 }}
-    return loggedXWords;
+    return console.log(loggedXWords.trim());
 };
-//console.log (firstXWords(importedData, 5));
+//firstXWords(importedData, 5)
 
-//x is start (not inclusive)
-//y is end (inclusive)
+/**
+ * Returns a string of words between x and y in an array of strings where x and y are integer numbers bigger than 0
+ * @param {String[]} wordsArr - An array of strings.
+ * @param {Number} x - start index (not inclusive)
+ * @param {Number} y - end index (inclusive)
+ * @returns {string|undefined} - A string of words between indices x and y
+ */
 function subsetOfWords (wordsArr, x, y) {
     if (wordsArr.length >= 2) {
     let loggedsubsetOfWords = "";
@@ -81,26 +84,30 @@ function subsetOfWords (wordsArr, x, y) {
     if (x => 0 && y >= 0 && x < y && x !== y) {
     for (let i=x; i < y; i++) {
         word = wordsArr[i];
-        loggedsubsetOfWords += `${word} `;
-        loggedsubsetOfWords.trim();
+        loggedsubsetOfWords += `${word} \n`;
     }
 } else {
     return undefined;
 }}
-    return console.log(loggedsubsetOfWords);
+    return console.log(loggedsubsetOfWords.trim());
 };
 //subsetOfWords(importedData,0,6) // Output includes words 1 - 6
 //subsetOfWords(importedData,7,6) // output is error message
 //subsetOfWords(importedData,6,6) // output is error message
 //subsetOfWords(importedData,4,6) // output will not include word 4. Output will be words 5 and 6
+
+/**
+ * Returns a string of words between x and y in an array of strings where x and y are integer numbers bigger than 0
+ * @param {String[]} wordsArr - An array of strings.
+ * @returns {string|undefined} - A string of words between indices x and y
+ */
 function sortWords (wordsArr) {
     wordsArr.sort();
     let sortedWords = "";
     for (let word of wordsArr) {
         sortedWords += `${word} \n`;
-        sortedWords.trim();
     }
-    return sortedWords;
+    return console.log(sortedWords.trim());
 };
 //sortWords(importedData)
 
