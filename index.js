@@ -47,14 +47,9 @@ const findWordsWithLetter = (letter) => {
     }
 }
 
-// console.log(testWords);
 // findWordsWithLetter('c');
 // console.log(findWordsWithLetter('c') + '\n-----------------------------');
 // console.log(findWordsWithLetter(process.argv[2]));
-
-/**
- * 
- */
 
 // logs the first ten words.
 const firstTenWords = () => {
@@ -69,7 +64,6 @@ const nextTenWords = () => {
     countOfWordsLogged += 10;
 }
 
-// nextTenWords();
 // nextTenWords();
 
 // logs from 0 to x words.
@@ -91,9 +85,6 @@ const sortWords = () => {
     const wordsSorted = wordsJSON.sort((a, b) => a.localeCompare(b));
     console.log(wordsSorted);
 }
-
-// const out2 = wordsJSON.sort((a, b) => a.localeCompare(b));
-// console.log(out2.slice(25, 30));
 
 // Wordle: 
 // 1. Game chooses a word
