@@ -151,42 +151,24 @@ function wordsWithQ(wordsArr) {
 
 // I think complete? it has the edge case for error return
 function findWordsWithLetter (wordsArr, letter) {
-    if (typeof letter !== 'string' && letter.length !== 1) return undefined;
+    // edge cases
+    if (typeof letter !== 'string' && letter.length !== 1) return console.log(undefined);
+    if (Number(letter) >= 0 || Number(letter) <= 0) return console.log(undefined); // for instances where letter is "1" for example
     let caseInsensitiveLetter = letter.toLowerCase();
-    if (!Array.isArray(wordsArr)) return console.log(undefined);
-    
-    for (let word of wordsArr) {
-        if (typeof word !== 'string') return console.log(undefined);
-        if (!words.toLowerCase().includes(caseInsensitiveLetter)) {
-            return console.log(wordsArr.splice().join(" ").trim()); // if it doesn't contain the letter, return and log all the words (string) in array
-        } else {
-        let wordsWithLetterArr = wordsArr.filter(words => words.toLowerCase().includes(caseInsensitiveLetter));
-        return console.log(wordsWithLetterArr.join(" ").trim());
-        }
-    }
-;}
+    if (!Array.isArray(wordsArr)) return console.log(undefined);    
+    if (!wordsArr.every(word => typeof word === 'string')) return console.log(undefined); //instead of a for loop and if statement use .every to iterate through array and check the condition typeof word === 'string' when entire callback has bang operator (to check if any and not all contain strings)
 
+    // finally getting to the point
+        let wordsWithLetterArr = wordsArr.filter(words => words.toLowerCase().includes(caseInsensitiveLetter)); // saves to variable all the words that contain instances of letter argument
+        if (wordsWithLetterArr.length === 0) { // if empty array
+        return console.log(wordsArr.join(" ").trim()); // returns and logs string of words of original array
+        } else return console.log(wordsWithLetterArr.join(" ").trim()); // returns and logs string of words that contain instances of letter argument
+};
 
-
-
-
-
-
-//     if (typeof letter === 'string' && Math.pow(Number(letter),1) !== letter && letter.length === 1) { // if true it means this is a string so proceed with rest of fx
-//         let caseInsensitiveLetter = letter.toLowerCase();
-//         for (let words of wordsArr) {
-//             if (!words.toLowerCase().includes(caseInsensitiveLetter))
-//             return console.log(wordsArr.splice().join(" ").trim()); // if it doesn't contain the letter, return and log all the words (string) in array
-//         };
-//         let wordsWithLetterArr = wordsArr.filter(words => words.toLowerCase().includes(caseInsensitiveLetter))
-//         return console.log(wordsWithLetterArr.join(" ").trim());
-//     }
-//  };
-
-
-//findWordsWithLetter(testData, "X"); // returns all words since x isn't included in any of them
-//findWordsWithLetter(testData, "L"); // returns only words with letter L
-//findWordsWithLetter(importedData, "L"); // returns only words with letter L
+//findWordsWithLetter(testData, "X"); // returns and logs all words (string) in array argument since x isn't included in any of them
+//findWordsWithLetter(testData, "L"); // returns and logs only words (string) with letter L
+//findWordsWithLetter(importedData, "p"); // returns and logs only words (string) with letter p
 //findWordsWithLetter(importedData, 1); // returns and logs undefined
-findWordsWithLetter(importedData, "1"); // Math.pow(Number(letter),1) !== letter evaluation in if statement makes this return undefined since "1" is not a number type
+//findWordsWithLetter(importedData, "1"); // returns and logs undefined
 //findWordsWithLetter(testData2, "l"); // gives error message
+//findWordsWithLetter({name: "Bob"}, "b"); // returns and logs undefined
