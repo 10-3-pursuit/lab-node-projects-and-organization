@@ -143,14 +143,15 @@ function wordsWithQ(wordsArr) {
     const result = wordsWithQArr.length === 0 ? wordsArr : wordsWithQArr; // condition being checked is wordsWithQArr.length === 0 so if it evaluates to true result will be original array if false it'll be new array with words that have letter q
     return console.log(result);
 };
-//wordsWithQ(importedData); // returns array of striings with words that contain any instances of letter q
-//wordsWithQ(testData); // returns original array of strings (bc doesn't contain letter q)
-wordsWithQ([1,2,3,4]); // should return undefined but doesn't, not sure why yet
-//wordsWithQ("hello");
+//wordsWithQ(importedData); // returns and logs array of strings with words that contain any instances of letter q
+//wordsWithQ(testData); // returns and logs original array of strings (bc doesn't contain letter q)
+//wordsWithQ([1,2,3,4]); // returns and logs undefined
+//wordsWithQ("hello"); // returns and logs undefined
+//wordsWithQ (testData2); // returns and logs undefined
 
 // I think complete? it has the edge case for error return
 function findWordsWithLetter (wordsArr, letter) {
-    if (typeof letter === 'string' && letter.length === 1) {
+    if (typeof letter === 'string' && Math.pow(Number(letter),1) !== letter && letter.length === 1) { //
         let caseInsensitiveLetter = letter.toLowerCase();
         for (let words of wordsArr) {
             if (!words.toLowerCase().includes(caseInsensitiveLetter))
@@ -162,6 +163,9 @@ function findWordsWithLetter (wordsArr, letter) {
  };
 
 
-//findWordsWithLetter(testData, "X")); // returns all words since x isn't included in any of them
-//findWordsWithLetter(testData, "L")); // returns only words with letter L
-//findWordsWithLetter(importedData, "L")); // returns only words with letter L
+//findWordsWithLetter(testData, "X"); // returns all words since x isn't included in any of them
+//findWordsWithLetter(testData, "L"); // returns only words with letter L
+//findWordsWithLetter(importedData, "L"); // returns only words with letter L
+//findWordsWithLetter(importedData, 1); // returns and logs undefined
+findWordsWithLetter(importedData, "1"); // Math.pow(Number(letter),1) !== letter evaluation in if statement makes this return undefined since "1" is not a number type
+//findWordsWithLetter(testData2, "l"); // gives error message
