@@ -3,8 +3,8 @@ const importedData = require ("./words.json");
 //console.log(importedData);
 
 /**
- * Returns a string of all of the words in array input.
- * @param {String[]}  wordsArr - An array of strings.
+ * Returns and logs to the console a string of all of the words in array input.
+ * @param {String[]} wordsArr - An array of strings.
  * @returns {string} - A string of words.
  */
 function allWords(wordsArr) {
@@ -17,9 +17,9 @@ function allWords(wordsArr) {
 //allWords(importedData); // there is no test file so invoking fx won't break anything ;-)
 
 /**
- * Returns a string of first 10 words in array input
- * @param {String[]}  wordsArr - An array of strings.
- * @returns {String | undefined} - A string of words first 10 words in array input or undefined if input has less than 10 words
+ * Returns and logs to the console a string of first 10 words in array input.
+ * @param {String[]} wordsArr - An array of strings.
+ * @returns {String | undefined} - A string of words first 10 words in array input or undefined if input has less than 10 words.
  */
 function firstTenWords (wordsArr) {
     if (wordsArr.length < 10) return undefined;
@@ -32,43 +32,44 @@ function firstTenWords (wordsArr) {
 //firstTenWords(importedData);
 
 /**
- * Returns a string of next 10 words in array input starting from the 10th word in an array
- * @param {String[]}  - An array of strings.
- * @returns {string} - A string of words.
+ * Returns and logs to the console a string of the next 10 words in array input starting at the 10th word, but not including it.
+ * @param {String[]} wordsArr - An array of strings.
+ * @returns {string | undefined} - A string of words or undefined if array input doesn't contain at least 20 elements.
  */
 function nextTenWords (wordsArr) {
-    //array must contain at least 20 strings
-    if (wordsArr.length >= 20) {
+    //array must contain at least 20 strings so it can return and log next 10 words
+    if (wordsArr.length < 20) return undefined;
     let loggedNext10Words = "";
     let word = "";
-    for (let i=10; i < 20; i++) {
+    for (let i=10; i < 20; i++) { // 10th word is "woops" so next word is "fanos"
         word = wordsArr[i];
         loggedNext10Words += `${word} \n`;
     }
-}
     return console.log(loggedNext10Words.trim()); // logs next ten words when nextTenWords is invoked
 };
 //nextTenWords(importedData)
 
 /**
- * Returns a string of first x words in an array of strings where x is an integer number bigger than 0
- * @param {String[]}  - An array of strings.
- * @param {Number} x - end index (inclusive)
- * @returns {string} - A string of words between indices 0 and x
+ * Returns and logs to the console a string of first x words in an array of strings where x is an integer number greater than 0.
+ * @param {String[]} wordsArr - An array of strings.
+ * @param {Number} x - ending index (inclusive).
+ * @returns {string | undefined} - A string of words between indices 0 and x of array argument or returns undefined if array argument is empty when x is greater than 0 (bc that makes no sense), x is less than 0, and/or x is not an integer.
  */
 function firstXWords (wordsArr, x) {
-    if (wordsArr.length >= 2) {
+    if (x < 0 || Number.isInteger(x) === false) return undefined;
+    if (wordsArr.length === 0 && x > 0) return undefined;
     let loggedXWords = "";
-    let word = "";
-    if (x > 0) {
     for (let i=0; i < x; i++) {
-        word = wordsArr[i];
-        loggedXWords += `${word} \n`;
+        loggedXWords += `${wordsArr[i]} \n`;
     }
-}}
     return console.log(loggedXWords.trim());
 };
-//firstXWords(importedData, 5)
+//firstXWords(importedData, 5) // prints first 5 words (string type)
+//firstXWords(importedData, 1) // prints first word (string type)
+//firstXWords (importedData, 0) // returns empty string as expected
+//firstXWords (["word1"], 1) // prints only word
+//firstXWords ([],1) // returns undefined
+//firstXWords ([],0) // returns empty string
 
 /**
  * Returns a string of words between x and y in an array of strings where x and y are integer numbers bigger than 0
