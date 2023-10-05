@@ -3,7 +3,11 @@ const importedData = require ("./words.json");
 //console.log(importedData);
 
 //Check if all edge cases are accounted for
-
+/**
+ * Returns a string of all of the words in array input
+ * @param {String[]}  - An array of strings.
+ * @returns {string} - A string of words.
+ */
 function allWords(wordsArr) {
     let loggedWords = "";
     for (let word of wordsArr) {
