@@ -15,9 +15,10 @@ function allWords(wordsArr) {
     }
     return console.log(loggedWords.trim()); // logs all the words and trims trailing spaces when allWords is invoked
 };
-//allWords(importedData); // there is no test file so invoking fx won't break anything ;-)
-//allWords("Words"); // returns undefined because argument must be array
-//allWords([0,1,2,3,4,5,6,7,8,9]); // returns undefined
+// ------ Test fx allWords ------
+//allWords (importedData); // there is no test file so invoking fx won't break anything ;-)
+//allWords ("Words"); // returns undefined because argument must be array
+//allWords ([0,1,2,3,4,5,6,7,8,9]); // returns undefined
 
 /**
  * Returns and logs to the console a string of first 10 words in array input.
@@ -34,7 +35,8 @@ function firstTenWords (wordsArr) {
     }
     return console.log(loggedFirst10Words.trim()); // logs first ten words and trims trailing spaces to make string look neat when firstTenWords is invoked
 };
-//firstTenWords(importedData); // logs first 10 words (string)
+// ------ Test fx firstTenWords ------
+//firstTenWords (importedData); // logs first 10 words (string)
 //firstTenWords ("words"); // returns undefined
 //firstTenWords (["word1", "word2", "word3", "word4"]); // returns undefined
 //firstTenWords ([0,1,2,3,4,5,6,7,8,9]); // returns undefined
@@ -55,8 +57,9 @@ function nextTenWords (wordsArr) {
     }
     return console.log(loggedNext10Words.trim()); // logs next ten words and trims trailing spaces when nextTenWords is invoked
 };
-//nextTenWords(importedData); // returns and logs next ten words
-//nextTenWords("words"); // returns and logs undefined
+// ------ Test fx nextTenWords ------
+//nextTenWords (importedData); // returns and logs next ten words
+//nextTenWords ("words"); // returns and logs undefined
 //nextTenWords ([0,1,2,3,4,5,6,7,8,9]); // returns undefined
 //nextTenWords ([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]); // returns undefined
 
@@ -77,8 +80,9 @@ function firstXWords (wordsArr, x) {
     }
     return console.log(loggedXWords.trim());
 };
-//firstXWords(importedData, 5); // prints first 5 words (string type)
-//firstXWords(importedData, 1); // prints first word (string type)
+// ------ Test fx firstXWords ------
+//firstXWords (importedData, 5); // prints first 5 words (string type)
+//firstXWords (importedData, 1); // prints first word (string type)
 //firstXWords (importedData, 0); // prints empty string as expected
 //firstXWords (["word1"], 1); // prints only element in array
 //firstXWords (["word1"], 0); //  prints empty string
@@ -105,16 +109,17 @@ function subsetOfWords (wordsArr, x, y) {
     }
     return console.log(loggedsubsetOfWords.trim());
 };
-//subsetOfWords(importedData,0,6); // output includes words 1 - 6 (string)
-//subsetOfWords(importedData,7,6); // output is undefined x can not be greater than y
-//subsetOfWords(importedData,6,6); // output is empty string
-//subsetOfWords(importedData,5,6); // output will not include word 5 but will include word 6 (string)
-//subsetOfWords(importedData,30,50); // output will not include word 30 but will include words 31 - 50 including word 50 (string)
-//subsetOfWords(["word1"],1,2); // output is undefined because only index that exists in this case is 0
-//subsetOfWords(["word1"],0,1); // output is word 1
-//subsetOfWords(["word1"],0,0); // output is empty string
-//subsetOfWords("words",0,1); // output is undefined
-//subsetOfWords([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]); // returns undefined
+// ------ Test fx subsetOfWords ------
+//subsetOfWords (importedData,0,6); // output includes words 1 - 6 (string)
+//subsetOfWords (importedData,7,6); // output is undefined x can not be greater than y
+//subsetOfWords (importedData,6,6); // output is empty string
+//subsetOfWords (importedData,5,6); // output will not include word 5 but will include word 6 (string)
+//subsetOfWords (importedData,30,50); // output will not include word 30 but will include words 31 - 50 including word 50 (string)
+//subsetOfWords (["word1"],1,2); // output is undefined because only index that exists in this case is 0
+//subsetOfWords (["word1"],0,1); // output is word 1
+//subsetOfWords (["word1"],0,0); // output is empty string
+//subsetOfWords ("words",0,1); // output is undefined
+//subsetOfWords ([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]); // returns undefined
 
 /**
  * Returns and logs a sorted string of words in alphabetical order.
@@ -131,9 +136,10 @@ function sortWords (wordsArr) {
     }
     return console.log(sortedWords.trim());
 };
-//sortWords(importedData); //prints sorted words (string)
-//sortWords("words"); // returns and prints undefined (string)
-//sortWords([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]); // return and prints undefined
+// ------ Test fx sortWords ------
+//sortWords (importedData); //prints sorted words (string)
+//sortWords ("words"); // returns and prints undefined (string)
+//sortWords ([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]); // return and prints undefined
 
 // (>^_^)> ---- Wordle Solver Functions: ---- <(^_^<)
 
@@ -168,12 +174,12 @@ function wordsWithQ(wordsArr) {
     const result = wordsWithQArr.length === 0 ? wordsArr : wordsWithQArr; // condition being checked is wordsWithQArr.length === 0 so if it evaluates to true result will be original array words (string type) if false it'll be new array elements (string) with words that have letter q
     return console.log(result.join(" ").trim());
 };
-//wordsWithQ(importedData); // returns and logs array of string elements with words that contain any instances of letter q
-//wordsWithQ(testData); // returns and logs original array of string elements (bc doesn't contain letter q)
-//wordsWithQ([1,2,3,4]); // returns and logs undefined
-//wordsWithQ("hello"); // returns and logs undefined
+// ------ Test fx wordsWithQ ------
+//wordsWithQ (importedData); // returns and logs array of string elements with words that contain any instances of letter q
+//wordsWithQ (testData); // returns and logs original array of string elements (bc doesn't contain letter q)
+//wordsWithQ ([1,2,3,4]); // returns and logs undefined
+//wordsWithQ ("hello"); // returns and logs undefined
 //wordsWithQ (testData2); // returns and logs undefined
-//wordsWithQ(testData2); // returns and logs undefined
 
 /**
  * Returns and logs to the console an array of strings with words containing any instances of the letter argument or the original array if there are no words that contain the letter argument.
@@ -195,10 +201,11 @@ function findWordsWithLetter (wordsArr, letter) {
         return console.log(wordsArr.join(" ").trim()); // returns and logs string of words of original array
         } else return console.log(wordsWithLetterArr.join(" ").trim()); // returns and logs string of words that contain instances of letter argument
 };
-//findWordsWithLetter(testData, "X"); // returns and logs all words (string) in array argument since x isn't included in any of them
-//findWordsWithLetter(testData, "L"); // returns and logs only words (string) with letter L
-//findWordsWithLetter(importedData, "p"); // returns and logs only words (string) with letter p
-//findWordsWithLetter(importedData, 1); // returns and logs undefined
-//findWordsWithLetter(importedData, "1"); // returns and logs undefined
-//findWordsWithLetter(testData2, "l"); // returns and logs undefined
-//findWordsWithLetter({name: "Bob"}, "b"); // returns and logs undefined
+// ------ Test fx findWordsWithLetter ------
+//findWordsWithLetter (testData, "X"); // returns and logs all words (string) in array argument since x isn't included in any of them
+//findWordsWithLetter (testData, "L"); // returns and logs only words (string) with letter L
+//findWordsWithLetter (importedData, "p"); // returns and logs only words (string) with letter p
+//findWordsWithLetter (importedData, 1); // returns and logs undefined
+//findWordsWithLetter (importedData, "1"); // returns and logs undefined
+//findWordsWithLetter (testData2, "l"); // returns and logs undefined
+//findWordsWithLetter ({name: "Bob"}, "b"); // returns and logs undefined
