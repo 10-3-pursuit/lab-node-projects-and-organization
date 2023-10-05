@@ -96,6 +96,7 @@ function subsetOfWords (wordsArr, x, y) {
 //subsetOfWords(["word1"],1,2); // output is undefined because only index that exists is 0
 //subsetOfWords(["word1"],0,1); // output is word 1 (a string at index 0)
 //subsetOfWords(["word1"],0,0); // output is empty string
+
 /**
  * Returns and logs a sorted string of words in alphabetical order.
  * @param {String[]} wordsArr - An array of strings.
@@ -123,11 +124,12 @@ const testData =["women",
 "bindi",
 "woops"
 ];
-// fx wordsWithQ Returns list of words that contain letter q
-// finds a word with matching letter q
-// finds a word with more than 1 matching letter q
-// finds a word with no matching letters? probably to return an error
-// not complete because needs edge case for error return 
+
+/**
+ * Returns and logs to the console an array of strings with words containing any instances of the letter q or the original array if there are no words that contain the letter q.
+ * @param {String[]} wordsArr - An array of strings.
+ * @returns {Array[]} - An array of strings with words containing any instances of the letter q or the original array if there are no words that contain the letter q.
+ */
 function wordsWithQ (wordsArr) {
     const wordsWithQArr = wordsArr.filter(word => word.includes('q'));
     if (wordsWithQArr.length === 0) {
@@ -135,8 +137,9 @@ function wordsWithQ (wordsArr) {
     }
     return console.log(wordsWithQArr);
 };
-//wordsWithQ(importedData)
-//wordsWithQ(testData)
+//wordsWithQ(importedData);
+//wordsWithQ(testData);
+
 // I think complete? it has the edge case for error return
 function findWordsWithLetter (wordsArr, letter) {
     if (typeof letter === 'string' && letter.length === 1) {
