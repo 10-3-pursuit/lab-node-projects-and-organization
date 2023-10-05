@@ -122,23 +122,31 @@ const testData =["women",
 "clags",
 "starn",
 "bindi",
-"woops"
+"woops",
 ];
+
+const testData2 = [1,2,3,4]
 
 /**
  * Returns and logs to the console an array of strings with words containing any instances of the letter q or the original array if there are no words that contain the letter q.
  * @param {String[]} wordsArr - An array of strings.
- * @returns {Array[]} - An array of strings with words containing any instances of the letter q or the original array if there are no words that contain the letter q.
+ * @returns {Array[] | Undefined} - An array of strings with words containing any instances of the letter q or the original array if there are no words that contain the letter q or undefined if input is not an array of strings.
  */
-function wordsWithQ (wordsArr) {
-    const wordsWithQArr = wordsArr.filter(word => word.includes('q'));
-    if (wordsWithQArr.length === 0) {
-        return console.log(wordsArr);
+function wordsWithQ(wordsArr) {
+    if (!Array.isArray(wordsArr)) return console.log(undefined);
+    
+    for (let word of wordsArr) {
+        if (typeof word !== 'string') return console.log(undefined);
     }
-    return console.log(wordsWithQArr);
+
+    const wordsWithQArr = wordsArr.filter(word => word.includes('q'));
+    const result = wordsWithQArr.length === 0 ? wordsArr : wordsWithQArr; // condition being checked is wordsWithQArr.length === 0 so if it evaluates to true result will be original array if false it'll be new array with words that have letter q
+    return console.log(result);
 };
-//wordsWithQ(importedData);
-//wordsWithQ(testData);
+//wordsWithQ(importedData); // returns array of striings with words that contain any instances of letter q
+//wordsWithQ(testData); // returns original array of strings (bc doesn't contain letter q)
+wordsWithQ([1,2,3,4]); // should return undefined but doesn't, not sure why yet
+//wordsWithQ("hello");
 
 // I think complete? it has the edge case for error return
 function findWordsWithLetter (wordsArr, letter) {
@@ -146,16 +154,14 @@ function findWordsWithLetter (wordsArr, letter) {
         let caseInsensitiveLetter = letter.toLowerCase();
         for (let words of wordsArr) {
             if (!words.toLowerCase().includes(caseInsensitiveLetter))
-            return wordsArr.join(" ").trim();
+            return console.log(wordsArr.join(" ").trim());
         };
         let wordsWithLetterArr = wordsArr.filter(words => words.toLowerCase().includes(caseInsensitiveLetter))
-        return wordsWithLetterArr.join(" ").trim();
+        return console.log(wordsWithLetterArr.join(" ").trim());
     }
  };
-//findWordsWithLetter(importedData)
-//findWordsWithLetter(testData)
-// ---- Test data: ----
 
-//console.log (findWordsWithLetter(testData, "X")); // returns all words since x isn't included in any of them
-//console.log (findWordsWithLetter(testData, "L")); // returns only words with letter L
-//console.log (findWordsWithLetter(importedData, "L")); // should print out words that contain that letter
+
+//findWordsWithLetter(testData, "X")); // returns all words since x isn't included in any of them
+//findWordsWithLetter(testData, "L")); // returns only words with letter L
+//findWordsWithLetter(importedData, "L")); // returns only words with letter L
