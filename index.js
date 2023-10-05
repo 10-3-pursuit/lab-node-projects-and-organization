@@ -125,12 +125,12 @@ const testData =["women",
 "woops",
 ];
 
-const testData2 = [1,2,3,4]
+const testData2 = [1,2,3,4];
 
 /**
  * Returns and logs to the console an array of strings with words containing any instances of the letter q or the original array if there are no words that contain the letter q.
  * @param {String[]} wordsArr - An array of strings.
- * @returns {Array[] | Undefined} - An array of strings with words containing any instances of the letter q or the original array if there are no words that contain the letter q or undefined if input is not an array of strings.
+ * @returns {String | Undefined} - String of words containing any instances of the letter q or the original array if there are no words that contain the letter q or undefined if input is not an array of strings.
  */
 function wordsWithQ(wordsArr) {
     if (!Array.isArray(wordsArr)) return console.log(undefined);
@@ -140,14 +140,15 @@ function wordsWithQ(wordsArr) {
     }
 
     const wordsWithQArr = wordsArr.filter(word => word.includes('q'));
-    const result = wordsWithQArr.length === 0 ? wordsArr : wordsWithQArr; // condition being checked is wordsWithQArr.length === 0 so if it evaluates to true result will be original array if false it'll be new array with words that have letter q
-    return console.log(result);
+    const result = wordsWithQArr.length === 0 ? wordsArr : wordsWithQArr; // condition being checked is wordsWithQArr.length === 0 so if it evaluates to true result will be original array words (string type) if false it'll be new array elements (string) with words that have letter q
+    return console.log(result.join(" ").trim());
 };
-//wordsWithQ(importedData); // returns and logs array of strings with words that contain any instances of letter q
-//wordsWithQ(testData); // returns and logs original array of strings (bc doesn't contain letter q)
+//wordsWithQ(importedData); // returns and logs array of string elements with words that contain any instances of letter q
+//wordsWithQ(testData); // returns and logs original array of string elements (bc doesn't contain letter q)
 //wordsWithQ([1,2,3,4]); // returns and logs undefined
 //wordsWithQ("hello"); // returns and logs undefined
 //wordsWithQ (testData2); // returns and logs undefined
+wordsWithQ(testData2);
 
 /**
  * Returns and logs to the console an array of strings with words containing any instances of the letter argument or the original array if there are no words that contain the letter argument.
@@ -174,5 +175,5 @@ function findWordsWithLetter (wordsArr, letter) {
 //findWordsWithLetter(importedData, "p"); // returns and logs only words (string) with letter p
 //findWordsWithLetter(importedData, 1); // returns and logs undefined
 //findWordsWithLetter(importedData, "1"); // returns and logs undefined
-findWordsWithLetter(testData2, "l"); // gives error message
+//findWordsWithLetter(testData2, "l"); // returns and logs undefined
 //findWordsWithLetter({name: "Bob"}, "b"); // returns and logs undefined
