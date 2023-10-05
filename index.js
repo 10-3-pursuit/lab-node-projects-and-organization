@@ -97,11 +97,12 @@ const sortWords = () => {
 
 // Wordle: 
 // 1. Game chooses a word
-//   a. use nextTenWords() and pick a word from the ten
+//   a. use getNextTenWords() and pick a word from the ten
 // 2. Player inputs a letter
 //   a. use process.argv[2]
 // 3. Game checks if letter is in word
 //   a. use word.includes()
+// 4. Return when letter is pointed
 
 
 const getNextTenWords = () => {
@@ -110,7 +111,9 @@ const getNextTenWords = () => {
     return out;
 }
 
-const currentWords = getNextTenWords();
+const currentWords = getNextTenWords(); // get the next words from JSON file
+let currentWord; // the current word to be played
+const guesses = []; // array of all guessed characters
 
 const chooseAWord = () => {
     // get next ten words
@@ -120,11 +123,34 @@ const chooseAWord = () => {
     return currentWords.shift();
 }
 
-const guessLetter = (letter) => {
-    console.log(letter);
-    
+currentWord = chooseAWord();
+
+
+const outputStatusOfGuesses = (currWord) => {
+    for (let e of currWord) {
+        if (guesses.includes(e)) {
+            // correct guess, so print letter in correct spot
+            console.log(e);
+        } else {
+            console.log('/');
+        }
+    }
 }
 
+/**
+ * Logs the output for the correct or incorrect guess
+ * @param {*} letter - a letter/character
+ * 
+ */
+const guessLetter = (letter) => {
+    // console.log(letter);
+    const isCorrectGuess = currentWord.toLowerCase().includes(letter.toLowerCase());
+    if (isCorrectGuess) {
 
-guessLetter(process.argv[2]);
+    } else {
+        
+    }
+}
+
+console.log(guessLetter(process.argv[2]));
 // console.log(chooseAWord());
