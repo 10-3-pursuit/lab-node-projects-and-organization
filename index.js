@@ -1,5 +1,4 @@
 const importedData = require ("./words.json");
-
 //console.log(importedData);
 
 /**
@@ -113,6 +112,8 @@ function sortWords (wordsArr) {
 //sortWords(importedData); //prints sorted words (string)
 
 // (>^_^)> ---- Wordle Solver Functions: ---- <(^_^<)
+
+// array of strings
 const testData =["women",
 "nikau",
 "swack",
@@ -124,7 +125,7 @@ const testData =["women",
 "bindi",
 "woops",
 ];
-
+// array of numbers
 const testData2 = [1,2,3,4];
 
 /**
@@ -148,7 +149,7 @@ function wordsWithQ(wordsArr) {
 //wordsWithQ([1,2,3,4]); // returns and logs undefined
 //wordsWithQ("hello"); // returns and logs undefined
 //wordsWithQ (testData2); // returns and logs undefined
-wordsWithQ(testData2);
+//wordsWithQ(testData2); // returns and logs undefined
 
 /**
  * Returns and logs to the console an array of strings with words containing any instances of the letter argument or the original array if there are no words that contain the letter argument.
