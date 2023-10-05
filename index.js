@@ -53,7 +53,7 @@ function nextTenWords (wordsArr) {
  * Returns and logs to the console a string of first x words in an array of strings where x is an integer number greater than 0.
  * @param {String[]} wordsArr - An array of strings.
  * @param {Number} x - ending index (inclusive).
- * @returns {string | undefined} - A string of words between indices 0 and x of array argument or returns undefined if array argument is empty when x is greater than 0 (bc that makes no sense), x is less than 0, and/or x is not an integer.
+ * @returns {String | Undefined} - A string of words between indices 0 and x of array argument or returns undefined if array argument is empty when x is greater than 0 (bc that makes no sense), x is less than 0, and/or x is not an integer.
  */
 function firstXWords (wordsArr, x) {
     if (x < 0 || Number.isInteger(x) === false) return undefined;
@@ -72,29 +72,26 @@ function firstXWords (wordsArr, x) {
 //firstXWords ([],0) // returns empty string
 
 /**
- * Returns a string of words between x and y in an array of strings where x and y are integer numbers bigger than 0
+ * Returns and logs to the console a string of words between x and y in an array of strings where x and y are integer numbers greater than 0.
  * @param {String[]} wordsArr - An array of strings.
- * @param {Number} x - start index (not inclusive)
- * @param {Number} y - end index (inclusive)
- * @returns {string|undefined} - A string of words between indices x and y
+ * @param {Number} x - starting index (not inclusive).
+ * @param {Number} y - ending index (inclusive).
+ * @returns {String | Undefined} - A string of words between indices x and y or returns undefined when x is greater than y, when array argument is empty when x is greater than 0 and/or when y is greater than 0, when either x is less than 0 and/or y is less than 0, and/or when either x and/or y are not integers.
  */
 function subsetOfWords (wordsArr, x, y) {
-    if (wordsArr.length >= 2) {
+    if (x < 0 || y < 0 || x > y ||Number.isInteger(x) === false || Number.isInteger(y) === false) return undefined;
+    if (wordsArr.length === 0 && x > 0 || wordsArr.length === 0 && y > 0) return undefined;
     let loggedsubsetOfWords = "";
     let word = "";
-    if (x => 0 && y >= 0 && x < y && x !== y) {
     for (let i=x; i < y; i++) {
         word = wordsArr[i];
         loggedsubsetOfWords += `${word} \n`;
     }
-} else {
-    return undefined;
-}}
     return console.log(loggedsubsetOfWords.trim());
 };
 //subsetOfWords(importedData,0,6) // Output includes words 1 - 6
-//subsetOfWords(importedData,7,6) // output is error message
-//subsetOfWords(importedData,6,6) // output is error message
+//subsetOfWords(importedData,7,6) // output is undefined
+//subsetOfWords(importedData,6,6) // output is word 6 (string)
 //subsetOfWords(importedData,4,6) // output will not include word 4. Output will be words 5 and 6
 
 /**
