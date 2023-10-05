@@ -16,8 +16,13 @@ function allWords(wordsArr) {
     }
     return loggedWords;
 };
-//console.log(allWords(importedData));
-
+console.log(allWords(importedData));
+/**
+ * Returns a string of first 10 words in array input
+ * @param {String[]}  - An array of strings.
+ * @returns {string} - A string of words.
+ */
+ 
 function firstTenWords (wordsArr) {
     let loggedFirst10Words = "";
     let word = "";
@@ -28,9 +33,9 @@ function firstTenWords (wordsArr) {
     }
     return loggedFirst10Words;
 };
-//console.log (firstTenWords(importedData));
+console.log (firstTenWords(importedData));
 
-function firstTenWords (wordsArr) {
+function nextTenWords (wordsArr) {
     let loggedNext10Words = "";
     let word = "";
     for (let i=10; i < 20; i++) {
@@ -40,9 +45,10 @@ function firstTenWords (wordsArr) {
     }
     return loggedNext10Words;
 };
-//console.log (firstTenWords(importedData));
+console.log (nextTenWords(importedData));
 
 // x is an integer number bigger than 0
+
 function firstXWords (wordsArr, x) {
     let loggedXWords = "";
     let word = "";
@@ -55,7 +61,7 @@ function firstXWords (wordsArr, x) {
 }
     return loggedXWords;
 };
-//console.log (firstXWords(importedData, 5));
+console.log (firstXWords(importedData, 5));
 
 //x is start (not inclusive)
 //y is end (inclusive)
