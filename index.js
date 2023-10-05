@@ -151,16 +151,37 @@ function wordsWithQ(wordsArr) {
 
 // I think complete? it has the edge case for error return
 function findWordsWithLetter (wordsArr, letter) {
-    if (typeof letter === 'string' && Math.pow(Number(letter),1) !== letter && letter.length === 1) { //
-        let caseInsensitiveLetter = letter.toLowerCase();
-        for (let words of wordsArr) {
-            if (!words.toLowerCase().includes(caseInsensitiveLetter))
-            return console.log(wordsArr.join(" ").trim());
-        };
-        let wordsWithLetterArr = wordsArr.filter(words => words.toLowerCase().includes(caseInsensitiveLetter))
+    if (typeof letter !== 'string' && letter.length !== 1) return undefined;
+    let caseInsensitiveLetter = letter.toLowerCase();
+    if (!Array.isArray(wordsArr)) return console.log(undefined);
+    
+    for (let word of wordsArr) {
+        if (typeof word !== 'string') return console.log(undefined);
+        if (!words.toLowerCase().includes(caseInsensitiveLetter)) {
+            return console.log(wordsArr.splice().join(" ").trim()); // if it doesn't contain the letter, return and log all the words (string) in array
+        } else {
+        let wordsWithLetterArr = wordsArr.filter(words => words.toLowerCase().includes(caseInsensitiveLetter));
         return console.log(wordsWithLetterArr.join(" ").trim());
+        }
     }
- };
+;}
+
+
+
+
+
+
+
+//     if (typeof letter === 'string' && Math.pow(Number(letter),1) !== letter && letter.length === 1) { // if true it means this is a string so proceed with rest of fx
+//         let caseInsensitiveLetter = letter.toLowerCase();
+//         for (let words of wordsArr) {
+//             if (!words.toLowerCase().includes(caseInsensitiveLetter))
+//             return console.log(wordsArr.splice().join(" ").trim()); // if it doesn't contain the letter, return and log all the words (string) in array
+//         };
+//         let wordsWithLetterArr = wordsArr.filter(words => words.toLowerCase().includes(caseInsensitiveLetter))
+//         return console.log(wordsWithLetterArr.join(" ").trim());
+//     }
+//  };
 
 
 //findWordsWithLetter(testData, "X"); // returns all words since x isn't included in any of them
