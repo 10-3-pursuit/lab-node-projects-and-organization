@@ -79,7 +79,7 @@ function firstXWords (wordsArr, x) {
  * @returns {String | Undefined} - A string of words between indices x and y or returns undefined when x is greater than y, when array argument is empty when x is greater than 0 and/or when y is greater than 0, when either x is less than 0 and/or y is less than 0, and/or when either x and/or y are not integers.
  */
 function subsetOfWords (wordsArr, x, y) {
-    if (x < 0 || y < 0 || x > y ||Number.isInteger(x) === false || Number.isInteger(y) === false) return undefined;
+    if (x < 0 || y < 0 || x > y || Number.isInteger(x) === false || Number.isInteger(y) === false) return undefined;
     if (wordsArr.length === 0 && x > 0 || wordsArr.length === 0 && y > 0) return undefined;
     let loggedsubsetOfWords = "";
     let word = "";
@@ -89,11 +89,13 @@ function subsetOfWords (wordsArr, x, y) {
     }
     return console.log(loggedsubsetOfWords.trim());
 };
-//subsetOfWords(importedData,0,6) // Output includes words 1 - 6
+//subsetOfWords(importedData,0,6) // Output includes words 1 - 6 (string)
 //subsetOfWords(importedData,7,6) // output is undefined
 //subsetOfWords(importedData,6,6) // output is word 6 (string)
-//subsetOfWords(importedData,4,6) // output will not include word 4. Output will be words 5 and 6
-
+//subsetOfWords(importedData,4,6) // output will not include word 4. Output will be words 5 and 6 (string)
+//subsetOfWords(["word1"],1,2) // output is undefined because only index that exists is 0
+//subsetOfWords(["word1"],0,1) // output is word 1 (a string at index 0)
+//subsetOfWords(["word1"],0,0) // output will be empty string
 /**
  * Returns a string of words between x and y in an array of strings where x and y are integer numbers bigger than 0
  * @param {String[]} wordsArr - An array of strings.
