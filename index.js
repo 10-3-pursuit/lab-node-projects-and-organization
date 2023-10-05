@@ -149,7 +149,12 @@ function wordsWithQ(wordsArr) {
 //wordsWithQ("hello"); // returns and logs undefined
 //wordsWithQ (testData2); // returns and logs undefined
 
-// I think complete? it has the edge case for error return
+/**
+ * Returns and logs to the console an array of strings with words containing any instances of the letter argument or the original array if there are no words that contain the letter argument.
+ * @param {String[]} wordsArr - An array of strings.
+ * @param {String} letter - a non-numerical string with length 1 representing a letter from the english alphabet.
+ * @returns {String | Undefined} - Returns and logs string with words containing any instances of the letter argument or return and logs the original array if there are no words that contain the letter argument. Returns and logs undefined when array argument is not an array of strings, or when letter argument is not 1 letter (character that is string type).
+ */
 function findWordsWithLetter (wordsArr, letter) {
     // edge cases
     if (typeof letter !== 'string' && letter.length !== 1) return console.log(undefined);
@@ -164,11 +169,10 @@ function findWordsWithLetter (wordsArr, letter) {
         return console.log(wordsArr.join(" ").trim()); // returns and logs string of words of original array
         } else return console.log(wordsWithLetterArr.join(" ").trim()); // returns and logs string of words that contain instances of letter argument
 };
-
 //findWordsWithLetter(testData, "X"); // returns and logs all words (string) in array argument since x isn't included in any of them
 //findWordsWithLetter(testData, "L"); // returns and logs only words (string) with letter L
 //findWordsWithLetter(importedData, "p"); // returns and logs only words (string) with letter p
 //findWordsWithLetter(importedData, 1); // returns and logs undefined
 //findWordsWithLetter(importedData, "1"); // returns and logs undefined
-//findWordsWithLetter(testData2, "l"); // gives error message
+findWordsWithLetter(testData2, "l"); // gives error message
 //findWordsWithLetter({name: "Bob"}, "b"); // returns and logs undefined
