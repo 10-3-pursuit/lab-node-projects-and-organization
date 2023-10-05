@@ -77,7 +77,7 @@ function dynamicFindWordsWithLetter (letter) {
 
 
 
-// Function calls
+// //Function calls
 // allWords(words);
 // firstTenWords(words);
 // nextTenWords(words);
