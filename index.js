@@ -209,3 +209,51 @@ function findWordsWithLetter (wordsArr, letter) {
 //findWordsWithLetter (importedData, "1"); // returns and logs undefined
 //findWordsWithLetter (testData2, "l"); // returns and logs undefined
 //findWordsWithLetter ({name: "Bob"}, "b"); // returns and logs undefined
+
+
+// ------ ^(^_^)^ RUN IN TERMINAL ^(^_^)^ ------
+// --- NOTE ---
+// Note: Using variables in the run function to directly capture user inputs may simplify the code, but this approach can make the tool more susceptible to errors. Users would need to remember the exact order of arguments, which can be challenging. Additionally, without named commands, the interface is less intuitive and self-explanatory. While this method is feasible, it sacrifices some user-friendliness and clarity in the process.
+// Assuming the function will only use importedData fx run is invoked and can be used in command line
+
+// ------ R U N ------
+// Note for Users: To run functions using terminal use command `node index.js <funcName> <arg2> <arg3>`
+const run = () => {
+    const funcName = process.argv[2];
+    // argument for first parameter is automatically inputted and equal to importedData
+    const arg2 = process.argv[3]; // x - number
+    const arg3 = process.argv[4]; // y - number
+
+    if (!funcName) {
+        console.log('Please specify a function name.'); // if user forgets to add a function name
+        return;
+    }
+
+    if (funcName === 'allWords') {
+        allWords(importedData);
+    } else if (funcName === 'firstTenWords') {
+        firstTenWords(importedData);
+    } else if (funcName === 'nextTenWords') {
+        nextTenWords(importedData);
+    } else if (funcName === 'firstXWords') {
+        firstXWords(importedData, parseInt(arg2));
+    } else if (funcName === 'subsetOfWords') {
+        subsetOfWords(importedData, parseInt(arg2), parseInt(arg3));
+    } else if (funcName === 'sortWords') {
+        sortWords(importedData);
+    } else if (funcName === 'wordsWithQ') {
+        wordsWithQ(importedData);
+    } else if (funcName === 'findWordsWithLetter') {
+        findWordsWithLetter(importedData, arg2);
+    } else if (funcName === 'lettersMatch') {
+        lettersMatch(importedData, arg2);
+    } else if (funcName === 'lettersExactMatch') {
+        lettersExactMatch(importedData, arg1);
+    } else if (funcName === 'lettersMatch2') {
+        lettersMatch2(importedData, arg1);
+    } else {
+        console.log('Unknown function name.'); // if user inputs function not in index.js
+    }
+};
+
+run();
